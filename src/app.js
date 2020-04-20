@@ -32,7 +32,7 @@ app.post("/repositories", (request, response) => {
 
 app.put("/repositories/:id", (request, response) => {
   const { id } = request.params;
-  const { title, url, techs } = request.body;
+  const { title, url, techs, likes } = request.body;
 
   const checkUUID = isUuid(id);
 
@@ -48,7 +48,13 @@ app.put("/repositories/:id", (request, response) => {
     return response.status(400).json({ message: "Repository not found" });
   }
 
-  repositories[indexRepository] = { title, url, techs };
+  repositories[indexRepository] = {
+    id,
+    title,
+    url,
+    techs,
+    likes: !!likes && 0,
+  };
 
   return response.json(repositories[indexRepository]);
 });
@@ -92,7 +98,7 @@ app.post("/repositories/:id/like", (request, response) => {
     return response.status(400).json({ message: "Repository not found" });
   }
 
-  repositories[indexRepository] = repositories[indexRepository].like++;
+  repositories[indexRepository].likes++;
 
   return response.json(repositories[indexRepository]);
 });
