@@ -53,7 +53,7 @@ app.put("/repositories/:id", (request, response) => {
     title,
     url,
     techs,
-    likes: !!likes && 0,
+    likes: !!likes ? 0 : null,
   };
 
   return response.json(repositories[indexRepository]);
