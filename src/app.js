@@ -10,10 +10,6 @@ app.use(cors());
 
 const repositories = [];
 
-app.get("/repositories", (request, response) => {
-  return response.json(repositories);
-});
-
 app.post("/repositories", (request, response) => {
   const { title, url, techs } = request.body;
 
@@ -30,9 +26,13 @@ app.post("/repositories", (request, response) => {
   return response.json(newRepository);
 });
 
+app.get("/repositories", (request, response) => {
+  return response.json(repositories);
+});
+
 app.put("/repositories/:id", (request, response) => {
   const { id } = request.params;
-  const { title, url, techs, likes } = request.body;
+  const { title, url, techs } = request.body;
 
   const checkUUID = isUuid(id);
 
@@ -53,7 +53,7 @@ app.put("/repositories/:id", (request, response) => {
     title,
     url,
     techs,
-    likes: !!likes ? 0 : null,
+    likes: repositories[indexRepository].likes,
   };
 
   return response.json(repositories[indexRepository]);
