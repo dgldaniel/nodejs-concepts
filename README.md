@@ -53,7 +53,39 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Running the project
 
-    $ yarn start
+    $ yarn dev
+    
+ **Create a repository** - **`POST /repositories`**
+ 
+Request example:
+
+```json
+{
+  "url": "https://github.com/Rocketseat/umbriel",
+  "title": "Javascript",
+  "techs": ["Node", "Express", "TypeScript", "Ruby"]
+}
+```
+
+**Edit a repository** - **`PUT /repositories/:id`**
+
+Request example:
+
+Use id returned from previous response and set on param
+
+```json
+{
+  "url": "https://github.com/Rocketseat/umbriel",
+  "title": "Javascript and Ruby",
+  "techs": ["Node", "Express", "TypeScript", "Ruby"]
+}
+```
+ 
+**List repositories** - **`GET /repositories`**
+
+**Delete a repository** - **`DELETE /repositories/:id`**
+
+**Increment Like** - **`POST /repositories/:id/like`**
 
 ## Running tests
 
