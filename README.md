@@ -55,6 +55,8 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
     $ yarn dev
     
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Concepts-Nodejs&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdgldaniel%2Fnodejs-concepts%2Fmaster%2Fconcepts-nodejs-insomnia.json)
+    
  **Create a repository** - **`POST /repositories`**
  
 Request example:
